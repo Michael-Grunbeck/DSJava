@@ -1,6 +1,6 @@
 
 import javax.swing.JOptionPane;
-public class PartB {
+public class PartC {
     public static void main(String[] args) throws Exception{
         String name = JOptionPane.showInputDialog("Enter your first name: ");
         String number1 = JOptionPane.showInputDialog("Please enter a number: ");
@@ -9,7 +9,7 @@ public class PartB {
         int b= Integer.parseInt(number2);
 
         
-        System.out.println("Your name is"+name+". Your numbers added together equals"+(a+b));
+        System.out.println("Your name is "+name+". Your numbers added together equals: "+(a+b));
 
 
     }
