@@ -8,7 +8,7 @@ public class DoubleMath {
         double b=3.0;
         double c = a*b;
         double thresh=0.00000000001;
-        double test = 3.6-c;
+        double test = Math.abs(3.6-c);
 
         if (test<=thresh){
             System.out.println("A times B is equal to 3.6");
