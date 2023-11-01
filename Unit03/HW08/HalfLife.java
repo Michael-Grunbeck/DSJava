@@ -11,8 +11,9 @@ public class HalfLife{
         while (material>=1){
             material = material/2;
             numyears=numyears+30;
+            //While amount that calculates material by dividing it by 2 and adding 30 to years
 
         }
         System.out.print("The amount of material left is "+ String.format("%.2f",material)+"% and the time it took for this is "+numyears+" years");
-    }
+    }//Prints out the amount of material
 }
