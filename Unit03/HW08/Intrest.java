@@ -14,7 +14,7 @@ public class Intrest {
         int years = a.nextInt();
         int x = 0;
         double intrestEarned=0;
-        
+    //Asks the user for input to calculate the data    
 
     System.out.println("|  Year  |   Intrest Earned ($)   |  Total Balance ($)  |");
     System.out.println("_________________________________________________________");
@@ -25,7 +25,7 @@ public class Intrest {
         money=money+intrestEarned;
         System.out.println(String.format("|   %02d   |  %12.2f          |     %10.2f      |",x,intrestEarned,money));
         
-
+//Calculates the nescarry data and puts it into a table
     }
 
     }
