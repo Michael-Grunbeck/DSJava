@@ -1,70 +1,72 @@
 class DiceRoll{
-    public void updateState(int newState){
-        if (newState=='1'){
-            String[] one = { " _______________",
-                           "  |               |",
-                             "|               |",
-                             "|               |",
-                             "|       x       |",
-                             "|               |",
-                             "|               |",
-                             "|_______________|"};
-            System.out.print(one);
+int value;  
+    public void roll(){
+       double i = Math.random();
+       i=i*6+1;
+       
+       value=(int)i;
+    }
+    
+    public void display(){
+        if(value==1){
+            System.out.println(" _______________");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|       x       |");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|_______________|");
         } 
-        if (newState=='2'){
-            String[] two = { " _______________",
-                           "  |               |",
-                             "|   x           |",
-                             "|               |",
-                             "|               |",
-                             "|               |",
-                             "|           x   |",
-                             "|_______________|"};
-            System.out.print(two);
+        if (value==2){
+            System.out.println(" _______________");
+            System.out.println("|               |");
+            System.out.println("|   x           |");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|           x   |");
+            System.out.println("|_______________|");
         } 
-         if (newState=='3'){
-            String[] three = {"_______________",
-                           "  |               |",
-                             "|   x           |",
-                             "|               |",
-                             "|       x       |",
-                             "|               |",
-                             "|           x   |",
-                             "|_______________|"};
-            System.out.print(three);
+         if (value==3){
+            System.out.println(" _______________");
+            System.out.println("|               |");
+            System.out.println("|   x           |");
+            System.out.println("|               |");
+            System.out.println("|       x       |");
+            System.out.println("|               |");
+            System.out.println("|           x   |");
+            System.out.println("|_______________|");
         } 
-        if (newState=='4'){
-            String[] four = {" _______________",
-                           "  |               |",
-                             "|   x       x   |",
-                             "|               |",
-                             "|               |",
-                             "|               |",
-                             "|   x       x   |",
-                             "|_______________|"};
-            System.out.print(four);
+        if (value==4){
+            System.out.println(" _______________");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|_______________|");
         } 
-        if (newState=='5'){
-            String[] five = {" _______________",
-                           "  |               |",
-                             "|   x       x   |",
-                             "|               |",
-                             "|       x       |",
-                             "|               |",
-                             "|   x       x   |",
-                             "|_______________|"};
-            System.out.print(five);
+        if (value==5){
+            System.out.println(" _______________");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|               |");
+            System.out.println("|       x       |");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|_______________|");
         } 
-        if (newState=='6'){
-            String[] six = {" _______________",
-                           "  |               |",
-                             "|   x       x   |",
-                             "|               |",
-                             "|   x       x   |",
-                             "|               |",
-                             "|   x       x   |",
-                             "|_______________|"};
-            System.out.print(six);
+        if (value==6){
+            System.out.println(" _______________");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|               |");
+            System.out.println("|   x       x   |");
+            System.out.println("|_______________|");
         } 
     }
 
@@ -75,12 +77,12 @@ public class Dice {
     public static void main (String[] args) throws Exception{
        DiceRoll randomdice = new DiceRoll();
        
-       double i = Math.random();
-       i=i*6+1;
-       int r;
-       r=(int)i;
+       randomdice.roll();
+       randomdice.display();
+       randomdice.roll();
+       randomdice.display();
        
-       randomdice.updateState(r);
+       
 
 
     }
