@@ -3,22 +3,21 @@
 package lawn;
 
 public class Yard {
-    // Create the yard
+    // creates the yard
     public char yard[][];
     
 
-    // Constructor
+    //constructor
     public Yard(int height, int width) {
-        // Create array with the dimensions and room for boundarries
+        // creating the array for lawn
         yard = new char[height + 2][width + 2]; 
 
         // Fill the array with initial values
         for (int i = 0; i < yard.length; i++) {
             for (int j = 0; j < yard[0].length; j++) {
-                // Boundary
+                
                 if (i == 0 || i == yard.length - 1 || j == 0 || j == yard[0].length - 1) {
                     yard[i][j] = 'R'; 
-                // Unmowed grass
                 } else {
                     yard[i][j] = '+'; 
                 }
@@ -36,17 +35,17 @@ public class Yard {
         yard[row][col] = value;
     }
 
-    // return height
+    // returns height
     public int returnHeight() {
         return yard.length - 2;
     }
 
-    // return width
+    // returns width
     public int returnWidth() {
         return yard[0].length - 2;
     }
 
-    // print lawn
+    // prints lawn
     public void printYard() {
         for (int i = 0; i < yard.length; i++) {
             for (int j = 0; j < yard[0].length; j++) {
