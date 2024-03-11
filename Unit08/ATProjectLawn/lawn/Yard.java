@@ -55,5 +55,27 @@ public class Yard {
         }
     }
 
+    public void printYard(Mower mower) {
+        for (int i = 0; i < yard.length; i++) {
+            for (int j = 0; j < yard[0].length; j++) {
+                if (mower.getRow() == i && mower.getColumn() == j) { 
+                    if (mower.getDirection() == 0) {
+                        System.out.print("^");
+                    } else if (mower.getDirection() == 1) {
+                        System.out.print(">");
+                    } else if (mower.getDirection() == 2) {
+                        System.out.print("v");
+                    } else if (mower.getDirection() == 3) {
+                        System.out.print("<");
+                    }
+                } else {
+                    System.out.print(yard[i][j]);
+                }
+                
+            }
+            System.out.println();
+        }
+    }
+
 
 }
