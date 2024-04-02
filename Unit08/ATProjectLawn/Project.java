@@ -7,74 +7,89 @@ import lawn.Mower;
 
 public class Project {
 
-    // clears the screen
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+//method for clearing screen
+public static void clearScreen() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
     }
-    public static void delay(long mseconds) {
-        try {
-            Thread.sleep(mseconds);
-        } catch (InterruptedException e) {
-            System.err.println("InterruptedException received!");
+
+// method delay yard
+public static void delay(long mseconds) {
+    try {
+        Thread.sleep(mseconds);
+    } catch (InterruptedException e) {
+        System.err.println("Interrupted Exception received!");
         }
     }
 
-    public static void main(String[] args) {
-        clearScreen(); 
+public static void main(String[] args) {
+    clearScreen(); // Clear the screen
 
-        
-        Scanner scanner = new Scanner(System.in);
+   
+    Scanner in = new Scanner(System.in);
 
-        // gets the dimesions of the lawn
-        System.out.print("Enter the height of the yard: ");
-        int height = scanner.nextInt();
+    //Get Dimensions
+    System.out.print("Enter the height of the yard: ");
+    int height = in.nextInt();
 
-        System.out.print("Enter the width of the yard: ");
-        int width = scanner.nextInt();
+    System.out.print("Enter the width of the yard: ");
+    int width = in.nextInt();
 
-        // creates the yard object
-        Yard yard = new Yard(height, width);
+    //Create Yard
+    Yard yard = new Yard(height, width);
 
-        // prints out the yard object
-        yard.printYard(); 
+    // Print Yard without mower
+    yard.printYard();
+    System.out.println();
 
-        
+    // Get starting area
+    System.out.print("Enter a starting row in your yard between 0 and " + (height - 1) + ": ");
+    int mrow = in.nextInt();
 
-        System.out.print("Enter a starting row in your yard between 0 and " + (height - 1) + ": ");
-        int mrow = scanner.nextInt();
-        
-        // Get column
-        System.out.print("Enter a starting column in your yard between 0 and " + (width - 1) + ": ");
-        int mcolumn = scanner.nextInt();
 
-        // Get direction
-        System.out.print("Enter a starting direction for your mower. 0 is up, 1 is right, 2 is down, 3 is left: ");
-        int mdirection = scanner.nextInt();
+    System.out.print("Enter a starting column in your yard between 0 and " + (width - 1) + ": ");
+    int mcolumn = in.nextInt();
 
-        // Print yard with mower
-        Mower mower = new Mower(mrow, mcolumn, mdirection);
-        yard.printYard(mower);
+    //Get start direction
+    System.out.print("Enter a starting direction for your mower. 0 is up, 1 is right, 2 is down, 3 is left: ");
+    int mdirection = in.nextInt();
 
-        // cut one row.
-        while (true) {
-            mower.cutGrass(yard);
-            if (mower.checkGrass(yard)) {
-            mower.moveForward();
-            } else { 
-                break;
+    //Print mower in yard
+    Mower mower = new Mower(mrow, mcolumn, mdirection);
+    clearScreen();
+    yard.printYard(mower);
+
+    while (true) {
+        mower.cutGrass(yard);
+                if (mower.checkGrass(yard) == false) {
+                    // check right
+                    mower.turnRight();
+                    if (mower.checkGrass(yard) == true) {
+                        mower.moveForward();
+                    } else {
+                        mower.turnLeft();
+                        mower.turnLeft();
+                        if (mower.checkGrass(yard) == true) {
+                            mower.moveForward();
+                        } else {
+                            break;
+                        }
+
+                    }
+                } else {
+                    mower.moveForward();
+                }
+                clearScreen();
+
+                
+                yard.printYard(mower);
+
+                System.out.println();
+                delay(400);
             }
-            Project.clearScreen();
-            yard.printYard(mower);
-            Project.delay(500);
-            
-
         }
+    }
 
-       // mower.cutGrass(yard);
-        scanner.close();
-    }
-    }
 
 
 

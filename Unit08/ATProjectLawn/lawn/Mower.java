@@ -1,3 +1,5 @@
+//Michael Grunbeck
+
 package lawn;
 
 public class Mower {
@@ -11,6 +13,15 @@ public class Mower {
         this.row = row + 1;
         this.column = column + 1;
         this.direction = direction;
+    }
+    
+    public boolean updateMower(Yard yard) {
+        if (yard.notMowed() == true) {
+            moveForward();
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
@@ -71,13 +82,17 @@ public class Mower {
     // looking for the grass
     public boolean checkGrass(Yard yard) {
         if (direction == 0) {
-            return yard.getStatus(row - 1, column) == '+';
+            boolean cell = yard.getStatus(row - 1, column) == '+';
+            return cell;
         } else if  (direction == 1) {
-            return yard.getStatus(row, column + 1) == '+';
+            boolean cell = yard.getStatus(row, column + 1) == '+';
+            return cell;
         } else if  (direction == 2) {
-            return yard.getStatus(row + 1, column) == '+';
-        } else if  (direction == 2) {
-            return yard.getStatus(row, column - 1) == '+';
+            boolean cell = yard.getStatus(row + 1, column) == '+';
+            return cell;
+        } else if  (direction == 3) {
+            boolean cell = yard.getStatus(row, column - 1) == '+';
+            return cell;
         }
         return false;
     }

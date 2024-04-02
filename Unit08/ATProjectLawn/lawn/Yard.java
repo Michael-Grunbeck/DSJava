@@ -76,6 +76,17 @@ public class Yard {
             System.out.println();
         }
     }
+    public boolean notMowed() {
+        for (int i = 1; i < yard.length - 1; i++) {
+            for (int j = 1; j < yard[0].length - 1; j++) {
+                if (yard[i][j] == '+') {
+                    return true;
+                    }
+                
+                }
+            }
+        return false;
+    }
 
-
+   
 }
